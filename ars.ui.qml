@@ -47,7 +47,7 @@ Window {
             Label {
                 text: qsTr("Rock Album")
                 color: "#ffffff"
-                y: radioButton.y - 275 
+                y: radioButton.y - 275 // Adjust this value as needed
                 
            }
         }       
@@ -62,7 +62,7 @@ Window {
             Label {
                 text: qsTr("Pop Album")
                 color: "#ffffff"
-                y: radioButton1.y - 350 
+                y: radioButton1.y - 350 // Adjust this value as needed
                 
             }
         }
@@ -117,7 +117,7 @@ Window {
 
             Rectangle {
                 anchors.fill: parent
-                color: "white" 
+                color: "white" // White background
 
                 TextEdit {
                     id: textEdit
@@ -126,7 +126,7 @@ Window {
                     font.pixelSize: 18
                     selectedTextColor: "#010101"
                     selectionColor: "#f8f8fc"
-                    color: "#000000" 
+                    color: "#000000" // Black text
                 }
             }
         }
@@ -137,8 +137,10 @@ Window {
             x: 169 // Align with other text fields
             y: textField1.y + textField1.height + 50 
             text: qsTr("Generate Review")
-            onClicked: albumReviewHandler.generate_review(textEdit.text) 
-            textEdit.text = ""; 
+            onClicked: {
+                albumReviewHandler.generate_review(textEdit.text); 
+                textEdit.text = ""; 
+            }
         }
 
         Text {
@@ -159,16 +161,16 @@ Window {
 
             Rectangle {
                 anchors.fill: parent
-                color: "white" 
+                color: "white" // White background
 
                 TextArea {
                     id: reviewTextArea
                     anchors.fill: parent
                     text: albumReviewHandler.review
                     placeholderText: qsTr("Album Review")
-                    color: "#000000" 
-                    readOnly: true 
-                    wrapMode: TextArea.Wrap 
+                    color: "#000000" // Black text
+                    readOnly: true // No user input allowed
+                    wrapMode: TextArea.Wrap // Enable text wrapping
                 }
             }
         }
