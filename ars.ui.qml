@@ -135,11 +135,11 @@ Window {
             id: generateButton
             objectName: "generateButton"
             x: 169 // Align with other text fields
-            y: textField1.y + textField1.height + 50 
+            y: textField1.y + textField1.height + 50 // Positioned right below the album name text input
             text: qsTr("Generate Review")
             onClicked: {
-                albumReviewHandler.generate_review(textEdit.text); 
-                textEdit.text = ""; 
+                albumReviewHandler.generate_review(textEdit.text); // Pass the lead songs text as a parameter
+                textEdit.text = ""; // Clear the lead songs text
             }
         }
 
